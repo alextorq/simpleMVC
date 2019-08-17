@@ -1,0 +1,82 @@
+[2019-08-17T19:55:17.246] [ERROR] cheese - MongoError: E11000 duplicate key error collection: todo.todos index: _id_ dup key: { : ObjectId('5d582b911fd3ab5431be8849') }
+    at Function.create (/home/alex/projects/myMVC_JS/node_modules/mongodb-core/lib/error.js:43:12)
+    at toError (/home/alex/projects/myMVC_JS/node_modules/mongodb/lib/utils.js:149:22)
+    at /home/alex/projects/myMVC_JS/node_modules/mongodb/lib/operations/collection_ops.js:859:39
+    at /home/alex/projects/myMVC_JS/node_modules/mongodb-core/lib/connection/pool.js:397:18
+    at processTicksAndRejections (internal/process/task_queues.js:82:9) {
+  driver: true,
+  name: 'MongoError',
+  index: 0,
+  code: 11000,
+  errmsg: 'E11000 duplicate key error collection: todo.todos index: ' +
+    "_id_ dup key: { : ObjectId('5d582b911fd3ab5431be8849') }",
+  [Symbol(mongoErrorContextSymbol)]: {}
+}
+[2019-08-17T19:55:17.254] [ERROR] cheese - MongoError: E11000 duplicate key error collection: todo.todos index: _id_ dup key: { : ObjectId('5d582cb2cd615f55682772af') }
+    at Function.create (/home/alex/projects/myMVC_JS/node_modules/mongodb-core/lib/error.js:43:12)
+    at toError (/home/alex/projects/myMVC_JS/node_modules/mongodb/lib/utils.js:149:22)
+    at /home/alex/projects/myMVC_JS/node_modules/mongodb/lib/operations/collection_ops.js:859:39
+    at /home/alex/projects/myMVC_JS/node_modules/mongodb-core/lib/connection/pool.js:397:18
+    at processTicksAndRejections (internal/process/task_queues.js:82:9) {
+  driver: true,
+  name: 'MongoError',
+  index: 0,
+  code: 11000,
+  errmsg: 'E11000 duplicate key error collection: todo.todos index: ' +
+    "_id_ dup key: { : ObjectId('5d582cb2cd615f55682772af') }",
+  [Symbol(mongoErrorContextSymbol)]: {}
+}
+[2019-08-17T19:55:27.894] [ERROR] cheese - MongoError: E11000 duplicate key error collection: todo.todos index: _id_ dup key: { : ObjectId('5d582b911fd3ab5431be8849') }
+    at Function.create (/home/alex/projects/myMVC_JS/node_modules/mongodb-core/lib/error.js:43:12)
+    at toError (/home/alex/projects/myMVC_JS/node_modules/mongodb/lib/utils.js:149:22)
+    at /home/alex/projects/myMVC_JS/node_modules/mongodb/lib/operations/collection_ops.js:859:39
+    at /home/alex/projects/myMVC_JS/node_modules/mongodb-core/lib/connection/pool.js:397:18
+    at processTicksAndRejections (internal/process/task_queues.js:82:9) {
+  driver: true,
+  name: 'MongoError',
+  index: 0,
+  code: 11000,
+  errmsg: 'E11000 duplicate key error collection: todo.todos index: ' +
+    "_id_ dup key: { : ObjectId('5d582b911fd3ab5431be8849') }",
+  [Symbol(mongoErrorContextSymbol)]: {}
+}
+[2019-08-17T19:55:27.896] [ERROR] cheese - MongoError: E11000 duplicate key error collection: todo.todos index: _id_ dup key: { : ObjectId('5d582cb2cd615f55682772af') }
+    at Function.create (/home/alex/projects/myMVC_JS/node_modules/mongodb-core/lib/error.js:43:12)
+    at toError (/home/alex/projects/myMVC_JS/node_modules/mongodb/lib/utils.js:149:22)
+    at /home/alex/projects/myMVC_JS/node_modules/mongodb/lib/operations/collection_ops.js:859:39
+    at /home/alex/projects/myMVC_JS/node_modules/mongodb-core/lib/connection/pool.js:397:18
+    at processTicksAndRejections (internal/process/task_queues.js:82:9) {
+  driver: true,
+  name: 'MongoError',
+  index: 0,
+  code: 11000,
+  errmsg: 'E11000 duplicate key error collection: todo.todos index: ' +
+    "_id_ dup key: { : ObjectId('5d582cb2cd615f55682772af') }",
+  [Symbol(mongoErrorContextSymbol)]: {}
+}
+[2019-08-17T22:17:57.920] [ERROR] cheese - MongooseError [CastError]: Cast to number failed for value "5d584d5273e50a771797b698" at path "id" for model "Todo"
+    at new CastError (/home/alex/projects/myMVC_JS/node_modules/mongoose/lib/error/cast.js:29:11)
+    at SchemaNumber.cast (/home/alex/projects/myMVC_JS/node_modules/mongoose/lib/schema/number.js:313:11)
+    at SchemaNumber.SchemaType.applySetters (/home/alex/projects/myMVC_JS/node_modules/mongoose/lib/schematype.js:948:12)
+    at SchemaNumber.SchemaType._castForQuery (/home/alex/projects/myMVC_JS/node_modules/mongoose/lib/schematype.js:1362:15)
+    at SchemaNumber.castForQuery (/home/alex/projects/myMVC_JS/node_modules/mongoose/lib/schema/number.js:365:14)
+    at SchemaNumber.SchemaType.castForQueryWrapper (/home/alex/projects/myMVC_JS/node_modules/mongoose/lib/schematype.js:1331:15)
+    at cast (/home/alex/projects/myMVC_JS/node_modules/mongoose/lib/cast.js:252:34)
+    at model.Query.Query.cast (/home/alex/projects/myMVC_JS/node_modules/mongoose/lib/query.js:4608:12)
+    at model.Query.Query._castConditions (/home/alex/projects/myMVC_JS/node_modules/mongoose/lib/query.js:1790:10)
+    at model.Query._updateThunk (/home/alex/projects/myMVC_JS/node_modules/mongoose/lib/query.js:3614:8)
+    at model.Query.<anonymous> (/home/alex/projects/myMVC_JS/node_modules/mongoose/lib/query.js:3724:23)
+    at model.Query._wrappedThunk [as _updateOne] (/home/alex/projects/myMVC_JS/node_modules/mongoose/lib/helpers/query/wrapThunk.js:16:8)
+    at /home/alex/projects/myMVC_JS/node_modules/kareem/index.js:369:33
+    at processTicksAndRejections (internal/process/task_queues.js:82:9) {
+  message: 'Cast to number failed for value ' +
+    '"5d584d5273e50a771797b698" at path "id" for ' +
+    'model "Todo"',
+  name: 'CastError',
+  stringValue: '"5d584d5273e50a771797b698"',
+  kind: 'number',
+  value: '5d584d5273e50a771797b698',
+  path: 'id',
+  reason: undefined,
+  model: Model { Todo }
+}
