@@ -1,6 +1,16 @@
 import PublisherSubscriber from './PubSub.js';
 import Observer from './Observer';
 
+/**
+ * 
+ * @param {String} str 
+ */
+function createFragmentFromString(str){
+	var template = document.createElement("template");
+	template.innerHTML = str;
+	return template.content;
+}
+
 class View {
 	constructor(rootEl) {
 		this.rootEl = rootEl;
@@ -11,25 +21,21 @@ class View {
 		this.dispatch = new PublisherSubscriber();
 		this.observer = new Observer();
 	}
-
+	/**
+	 * Create markdown for items form 
+	 * @return {void}
+	 */
 	createForm() {
-		function createFragmentFromString(str){
-			var template = document.createElement("template");
-			template.innerHTML = str;
-			return template.content;
-		}
 		var fragment = createFragmentFromString(this.templateForm())
 		this.rootEl.appendChild(fragment);
-		
 		this.inputTODO = document.getElementById('form-text');
 	}
 
+	/**
+	 * Create markdown for items wrapper
+	 * @return {void}
+	 */
 	createList() {
-		function createFragmentFromString(str){
-			var template = document.createElement("template");
-			template.innerHTML = str;
-			return template.content;
-		}
 		var fragment = createFragmentFromString(this.templateList())
 		this.rootEl.appendChild(fragment);
 
@@ -39,6 +45,7 @@ class View {
 	/**
 	 * 
 	 * @param {Object} node 
+	 * @return {void}
 	 */
 	createItem(node) {
 		let wrapper = document.createElement('li');
@@ -83,10 +90,10 @@ class View {
 		
      
 		this.todoList.appendChild(wrapper);
+		// Animate appearance item
 		setTimeout(() => {wrapper.classList.remove('left-transform')}, 20)
 
 	}
-
 	/**
 	 * Loading items
 	 * @param {Array} items 
@@ -96,14 +103,17 @@ class View {
 			this.createItem(item)
 		}
 	}
-
-
+	/**
+	 * Animate preloader
+	 * @return {void}
+	 */
 	togglePreloader() {
 		this.rootEl.querySelector('.preloader').classList.toggle('active')
 	}
 
 	/**
 	 * Add handlers 
+	 * @return {void}
 	 */
 	addHandlers() {
 		this.rootEl.addEventListener('submit', (event) => {
@@ -120,9 +130,11 @@ class View {
 		this.todoList.addEventListener('change', (event) => {
 			let target = event.target;
 			let parent = target.closest('.todo__item');
+			
 			let id = +parent.id.replace('todo__id_', '');
 			let text = parent.querySelector('.form-control').value;
 			let complete = parent.querySelector('label input').checked;
+
 			let classPrefix = complete ? ' complete' : '';
 			parent.classList = 'todo__item' + classPrefix;
 			this.dispatch.fireEvent('editViewItem', {id, text, complete});
@@ -144,18 +156,29 @@ class View {
 		})
 	}
 
+	/**
+	 * setTimeout for animate delete item
+	 * @param {Number} id 
+	 * @return {void}
+	 */
 	deleteItem(id) {
 		let parent = document.getElementById('todo__id_' + id)
 		parent.classList.add('left-transform');
 		setTimeout(() => {parent.remove()}, 400)
 	}
 
+	/**
+	 * Clear temporary data after create new item
+	 * @return {void}
+	 */
 	clearForm() {
 		this.inputTODO.value = '';
 		this._temporaryText = '';
 	}
 
-
+	/**
+	 * @return {String} string for html insert
+	 */
 	templateList() {
 		return	`<div class="list-wrapper">
 					<div class="preloader">
@@ -165,6 +188,9 @@ class View {
 				</div>`
 	}
 
+	/**
+	 * @return {String} string for html insert
+	 */
 	templateForm() {
 		return `
 			<div class="app-wrapper">

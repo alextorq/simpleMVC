@@ -8441,6 +8441,11 @@ function () {
     this.subscriber = {};
     this.count = 0;
   }
+  /**
+   * @param {Object} item 
+   * @return {Number} id for unsubsc
+   */
+
 
   _createClass(Observer, [{
     key: "addItem",
@@ -8449,11 +8454,21 @@ function () {
       this.subscriber[this.count] = item;
       return this.count;
     }
+    /**
+     * Unsubscriber by id
+     * @param {Number} id 
+     */
+
   }, {
     key: "removeItem",
     value: function removeItem(id) {
       delete this.subscribe[id];
     }
+    /**
+     * 
+     * @param {any} value 
+     */
+
   }, {
     key: "fireEvent",
     value: function fireEvent(value) {
@@ -8488,6 +8503,12 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
+function createFragmentFromString(str) {
+  var template = document.createElement("template");
+  template.innerHTML = str;
+  return template.content;
+}
+
 var View =
 /*#__PURE__*/
 function () {
@@ -8502,29 +8523,27 @@ function () {
     this.dispatch = new _PubSub.default();
     this.observer = new _Observer.default();
   }
+  /**
+   * Create markdown for items form 
+   * @return {void}
+   */
+
 
   _createClass(View, [{
     key: "createForm",
     value: function createForm() {
-      function createFragmentFromString(str) {
-        var template = document.createElement("template");
-        template.innerHTML = str;
-        return template.content;
-      }
-
       var fragment = createFragmentFromString(this.templateForm());
       this.rootEl.appendChild(fragment);
       this.inputTODO = document.getElementById('form-text');
     }
+    /**
+     * Create markdown for items wrapper
+     * @return {void}
+     */
+
   }, {
     key: "createList",
     value: function createList() {
-      function createFragmentFromString(str) {
-        var template = document.createElement("template");
-        template.innerHTML = str;
-        return template.content;
-      }
-
       var fragment = createFragmentFromString(this.templateList());
       this.rootEl.appendChild(fragment);
       this.todoList = document.getElementById('todo__list');
@@ -8532,6 +8551,7 @@ function () {
     /**
      * 
      * @param {Object} node 
+     * @return {void}
      */
 
   }, {
@@ -8571,7 +8591,8 @@ function () {
       button.innerText = 'Delete';
       button.classList = 'btn btn-primary';
       wrapper.appendChild(button);
-      this.todoList.appendChild(wrapper);
+      this.todoList.appendChild(wrapper); // Animate appearance item
+
       setTimeout(function () {
         wrapper.classList.remove('left-transform');
       }, 20);
@@ -8608,6 +8629,11 @@ function () {
         }
       }
     }
+    /**
+     * Animate preloader
+     * @return {void}
+     */
+
   }, {
     key: "togglePreloader",
     value: function togglePreloader() {
@@ -8615,6 +8641,7 @@ function () {
     }
     /**
      * Add handlers 
+     * @return {void}
      */
 
   }, {
@@ -8676,6 +8703,12 @@ function () {
         _this.observer.fireEvent(status);
       });
     }
+    /**
+     * setTimeout for animate delete item
+     * @param {Number} id 
+     * @return {void}
+     */
+
   }, {
     key: "deleteItem",
     value: function deleteItem(id) {
@@ -8685,17 +8718,30 @@ function () {
         parent.remove();
       }, 400);
     }
+    /**
+     * Clear temporary data after create new item
+     * @return {void}
+     */
+
   }, {
     key: "clearForm",
     value: function clearForm() {
       this.inputTODO.value = '';
       this._temporaryText = '';
     }
+    /**
+     * @return {String} string for html insert
+     */
+
   }, {
     key: "templateList",
     value: function templateList() {
       return "<div class=\"list-wrapper\">\n\t\t\t\t\t<div class=\"preloader\">\n\t\t\t\t\t\t<span class=\"lds-dual-ring\"></span>\n\t\t\t\t\t</div>\n\t\t\t\t\t<ul class=\"todo__list\" id=\"todo__list\"></ul>\n\t\t\t\t</div>";
     }
+    /**
+     * @return {String} string for html insert
+     */
+
   }, {
     key: "templateForm",
     value: function templateForm() {
@@ -10615,7 +10661,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "43219" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "40801" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
